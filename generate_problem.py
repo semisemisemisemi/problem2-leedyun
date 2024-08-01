@@ -41,7 +41,7 @@ prompt = """
 ---
 2. 문제 코드
 아래는 프로그램의 대략적인 구조를 보여주는 기본 코드입니다.
-```c++
+```cpp
 #include <iostream>
 using namespace std;
 int factorial(int n) {
@@ -53,9 +53,11 @@ int main() {
     cout << factorial(n) << endl;
     return 0;
 }
+```
 ---
 3. 정답 코드
 아래는 정답 코드입니다.
+```cpp
 #include <iostream>
 using namespace std;
 int factorial(int n) {
@@ -70,6 +72,7 @@ int main() {
     cout << factorial(n) << endl;
     return 0;
 }
+```
 ---
 4. 테스트 케이스
 입력:
@@ -89,6 +92,7 @@ int main() {
 출력:
 1
 ---
-""" # 닫는 삼중 따옴표
+"""  # 닫는 삼중 따옴표
 problem = generate_problem(prompt)
 update_files(problem)
+```
