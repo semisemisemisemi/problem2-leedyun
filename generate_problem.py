@@ -53,3 +53,42 @@ int main() {
     cout << factorial(n) << endl;
     return 0;
 }
+---
+3. 정답 코드
+아래는 정답 코드입니다.
+#include <iostream>
+using namespace std;
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+int main() {
+    int n;
+    cin >> n;
+    cout << factorial(n) << endl;
+    return 0;
+}
+---
+4. 테스트 케이스
+입력:
+5
+출력:
+120
+입력:
+10
+출력:
+3628800
+입력:
+0
+출력:
+1
+입력:
+1
+출력:
+1
+---
+""" # 닫는 삼중 따옴표
+problem = generate_problem(prompt)
+update_files(problem)
