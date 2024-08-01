@@ -95,4 +95,3 @@ int main() {
 """  # 닫는 삼중 따옴표
 problem = generate_problem(prompt)
 update_files(problem)
-```
