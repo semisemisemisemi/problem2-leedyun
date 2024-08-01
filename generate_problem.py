@@ -7,7 +7,7 @@ def generate_problem(prompt):
         raise ValueError("API key is missing or invalid")
     openai.api_key = api_key
     
-    response = openai.chat.completions.create(
+    response = openai.ChatCompletion.create(
         model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
@@ -22,6 +22,7 @@ def update_files(problem_text):
     if len(parts) < 4:
         print("생성된 텍스트:", problem_text)
         raise ValueError("생성된 문제 텍스트 형식이 올바르지 않습니다.")
+    
     problem_description, problem_code, solution_code, test_case_code = parts[:4]
 
     with open('README.md', 'w') as readme_file:
@@ -36,11 +37,19 @@ def update_files(problem_text):
 prompt = """
 다음을 포함한 C++ 프로그래밍 문제를 생성하세요:
 1. 자연어 문제 설명
-2. 문제 코드
-3. 정답 코드
-4. 테스트 케이스
+ 사용자로부터 정수 n을 입력 받아서 그 정수값의 팩토리얼을 구하는 프로그램을 작성하세요. 팩토리얼이란 자연수 n에 대해서 1부터 n까지의 모든 자연수를 곱하는 것을 합니다. 예를 들어, 5의 팩토리얼은 5 x 4 x 3 x 2 x 1 = 120입니다.
 ---
-
-"""
-problem = generate_problem(prompt)
-update_files(problem)
+2. 문제 코드
+아래는 프로그램의 대략적인 구조를 보여주는 기본 코드입니다.
+```c++
+#include <iostream>
+using namespace std;
+int factorial(int n) {
+    // 여기에 코드를 구현하세요.
+}
+int main() {
+    int n;
+    cin >> n;
+    cout << factorial(n) << endl;
+    return 0;
+}
