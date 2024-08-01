@@ -2,10 +2,13 @@ import openai
 import os
 
 def generate_problem(prompt):
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    api_key = os.getenv('OPENAI_API_KEY')
+    if not api_key:
+        raise ValueError("API key is missing or invalid")
+    openai.api_key = api_key
     
-    response = openai.ChatCompletion.create(
-        model="gpt-4",
+    response = openai.Completion.create(
+        model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
