@@ -15,7 +15,7 @@ def generate_problem(prompt):
         ]
     )
     
-    return response.choices[0].message.content.trim()
+    return response.choices[0].message.content.strip()
 
 def update_files(problem_text):
     parts = problem_text.split('---')
