@@ -7,15 +7,15 @@ def generate_problem(prompt):
         raise ValueError("API key is missing or invalid")
     openai.api_key = api_key
     
-    response = openai.Completion.create(
-        model="gpt-3.5-turbo",
+    response = openai.chat.completions.create(
+        model="gpt-4",
         messages=[
             {"role": "system", "content": "You are a helpful assistant."},
             {"role": "user", "content": prompt}
         ]
     )
     
-    return response.choices[0].message['content'].strip()
+    return response.choices[0].message.content.trim()
 
 def update_files(problem_text):
     parts = problem_text.split('---')
