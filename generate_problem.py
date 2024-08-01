@@ -20,6 +20,7 @@ def generate_problem(prompt):
 def update_files(problem_text):
     parts = problem_text.split('---')
     if len(parts) < 4:
+        print("생성된 텍스트:", problem_text)
         raise ValueError("생성된 문제 텍스트 형식이 올바르지 않습니다.")
     problem_description, problem_code, solution_code, test_case_code = parts[:4]
 
