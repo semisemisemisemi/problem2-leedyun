@@ -1,7 +1,7 @@
 #include <iostream>
 
 int solution() {
-    // 여기에 코드를 작성하세요
+    // 여기에 코드를 작성하세요 
     return 0;
 }
 
